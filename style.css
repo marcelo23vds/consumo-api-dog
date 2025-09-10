@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(226, 226, 226);
+}
+
+#container-buscar {
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#input {
+    width: 300px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+#botao-buscar {
+    width: 70px;
+    height: 30px;
+    border-radius: 10%;
+}
+
+#container {
+    display: columns;
+    columns: 6;
+    text-align: center;
+}
+
+#container img {
+    width: 290px;
+    height: 290px;
+    margin: 0.8rem 0;
+    border-radius: 10%;
+}

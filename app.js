@@ -1,30 +1,22 @@
 'use strict'
 
-function buscarImagens(listaImagens){
+async function buscarImagens() {
 
-    const galeria = document.getElementById('galeria')
-    let imagem = document.createElement('img')
-
-    imagem.src = listaImagens.message
-    console.log(imagem.src)
-    galeria.appendChild(imagem)
-}
-
-async function carregarImagens(raca){
-
-    //const raca = document.getElementById('raca').value
-    const url = `https://dog.ceo/api/breed/${raca}/images`
+    const input = document.getElementById('input').value
+    const url = `https://dog.ceo/api/breed/${input}/images`
 
     const response = await fetch(url)
-    const listaImagens = await response.json()
+    const imagens = await response.json()
 
-    const teste = listaImagens.message
-    console.log(teste)
+    const container = document.getElementById('container')
+    container.innerHTML = ''
 
-    teste.forEach(buscarImagens)
+    imagens.message.forEach(urlImagem => {
+        const imagem = document.createElement('img')
+        imagem.src = urlImagem
+        container.appendChild(imagem)
+    });
 }
 
-carregarImagens('doberman')
-
-// const botaoBuscar = document.getElementById('buscar-raca')
-// botaoBuscar.addEventListener('click', buscarImagens) 
+const botaoBuscar = document.getElementById('botao-buscar')
+botaoBuscar.addEventListener('click', buscarImagens)
